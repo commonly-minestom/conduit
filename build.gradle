@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group = 'net.minestom'
+version = '1.0.0'
+
+subprojects {
+
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        compileOnly libs.minestom
+        compileOnly libs.adventure.api
+        compileOnly libs.adventure.text.minimessage
+    }
+}

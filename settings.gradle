@@ -1,0 +1,4 @@
+rootProject.name = 'conduit'
+
+include 'conduit-api'
+include 'conduit-impl'
