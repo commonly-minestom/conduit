@@ -9,7 +9,21 @@ incomplete. Conduit aims to provide clear and concise API specifications, for de
 
 ## Install
 
-TODO
+Conduit is available [here](https://minestom.quietterminal.com/#/).
+
+```groovy
+repositories {
+    maven {
+        name "reposiliteRepositoryReleases"
+        url "https://minestom.quietterminal.com/releases"
+    }
+}
+
+dependencies {
+    implementation "org.comminestom:conduit-api:1.0.0"
+    implementation "org.comminestom:conduit-impl:1.0.0"
+}
+```
 
 ## Documentation
 
