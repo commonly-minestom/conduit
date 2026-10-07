@@ -1,13 +1,18 @@
 plugins {
     id 'java'
+    id 'maven-publish'
 }
 
-group = 'net.minestom'
+group = 'org.comminestom'
 version = '1.0.0'
 
 subprojects {
 
+    group = 'org.comminestom'
+    version = '1.0.0'
+
     apply plugin: 'java'
+    apply plugin: 'maven-publish'
 
     repositories {
         mavenCentral()
@@ -17,5 +22,33 @@ subprojects {
         compileOnly libs.minestom
         compileOnly libs.adventure.api
         compileOnly libs.adventure.text.minimessage
+    }
+
+    publishing {
+        publications {
+            maven(MavenPublication) {
+                groupId = project.group.toString()
+                version = project.version.toString()
+                from components.java
+            }
+        }
+        repositories {
+            maven {
+                name = "quietterminalReleases"
+                url = uri("https://minestom.quietterminal.com/releases")
+                credentials {
+                    username = project.findProperty("QUIETTERMINAL_USER") ?: System.getenv("QUIETTERMINAL_USER")
+                    password = project.findProperty("QUIETTERMINAL_PASS") ?: System.getenv("QUIETTERMINAL_PASS")
+                }
+            }
+            maven {
+                name = "quietterminalSnapshots"
+                url = uri("https://minestom.quietterminal.com/snapshots")
+                credentials {
+                    username = project.findProperty("QUIETTERMINAL_USER") ?: System.getenv("QUIETTERMINAL_USER")
+                    password = project.findProperty("QUIETTERMINAL_PASS") ?: System.getenv("QUIETTERMINAL_PASS")
+                }
+            }
+        }
     }
 }
