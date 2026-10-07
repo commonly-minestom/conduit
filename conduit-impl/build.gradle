@@ -1,5 +1,7 @@
 dependencies {
-    implementation project(":conduit-api")
+    compileOnly project(":conduit-api")
+
+    testImplementation project(":conduit-api")
 
     testImplementation libs.minestom
     testImplementation libs.adventure.text.minimessage
