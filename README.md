@@ -1,6 +1,6 @@
 # Conduit
 
-An API specifications for Minestom utilities.
+Simple API abstraction for Minestom.
 
 ## Why Conduit?
 
